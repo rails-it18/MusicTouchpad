@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import AudioKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var musicTouchView: MusicTouchView!
+
+    private let soundSource = OscillatorSoundSource()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        musicTouchView.soundSource = soundSource
+
+        AudioKit.output = soundSource.audioKitNode
+        AudioKit.start()
     }
 
     override func didReceiveMemoryWarning() {
