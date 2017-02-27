@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23A0D5B7CD154E7331301993 /* Pods_MusicTouchpad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4659FD554525E7E8CA29A4A /* Pods_MusicTouchpad.framework */; };
+		41B6438E772FF8B58B7BAF7A /* Pods_MusicTouchpadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79593C500D7C32773BA0579 /* Pods_MusicTouchpadUITests.framework */; };
+		9FFDABA67BC79AC84FEB32E8 /* Pods_MusicTouchpadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A74C3EEB7C41A18B292BB10 /* Pods_MusicTouchpadTests.framework */; };
 		B8F14AC41E64158700B063C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F14AC31E64158700B063C8 /* AppDelegate.swift */; };
 		B8F14AC61E64158700B063C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F14AC51E64158700B063C8 /* ViewController.swift */; };
 		B8F14AC91E64158700B063C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F14AC71E64158700B063C8 /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D2467712E377120E69E954C /* Pods-MusicTouchpadUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicTouchpadUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicTouchpadUITests/Pods-MusicTouchpadUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9A74C3EEB7C41A18B292BB10 /* Pods_MusicTouchpadTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicTouchpadTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4659FD554525E7E8CA29A4A /* Pods_MusicTouchpad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicTouchpad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F14AC01E64158700B063C8 /* MusicTouchpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTouchpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F14AC31E64158700B063C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8F14AC51E64158700B063C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,12 @@
 		B8F14ADF1E64158700B063C8 /* MusicTouchpadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicTouchpadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F14AE31E64158700B063C8 /* MusicTouchpadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTouchpadUITests.swift; sourceTree = "<group>"; };
 		B8F14AE51E64158700B063C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD4DA02A3039950563036153 /* Pods-MusicTouchpadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicTouchpadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicTouchpadTests/Pods-MusicTouchpadTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D648F61500A0BCFCE8A99485 /* Pods-MusicTouchpadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicTouchpadUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicTouchpadUITests/Pods-MusicTouchpadUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E21EE7F55007B38E680BBCA2 /* Pods-MusicTouchpad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicTouchpad.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicTouchpad/Pods-MusicTouchpad.release.xcconfig"; sourceTree = "<group>"; };
+		E71F7A6E70DCA4CB1D2C53FA /* Pods-MusicTouchpad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicTouchpad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicTouchpad/Pods-MusicTouchpad.debug.xcconfig"; sourceTree = "<group>"; };
+		E79593C500D7C32773BA0579 /* Pods_MusicTouchpadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicTouchpadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBBFC27C357B411E89134DE1 /* Pods-MusicTouchpadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicTouchpadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicTouchpadTests/Pods-MusicTouchpadTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A0D5B7CD154E7331301993 /* Pods_MusicTouchpad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FFDABA67BC79AC84FEB32E8 /* Pods_MusicTouchpadTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B6438E772FF8B58B7BAF7A /* Pods_MusicTouchpadUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		082822B0E7A6B6749885292D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E71F7A6E70DCA4CB1D2C53FA /* Pods-MusicTouchpad.debug.xcconfig */,
+				E21EE7F55007B38E680BBCA2 /* Pods-MusicTouchpad.release.xcconfig */,
+				CD4DA02A3039950563036153 /* Pods-MusicTouchpadTests.debug.xcconfig */,
+				FBBFC27C357B411E89134DE1 /* Pods-MusicTouchpadTests.release.xcconfig */,
+				6D2467712E377120E69E954C /* Pods-MusicTouchpadUITests.debug.xcconfig */,
+				D648F61500A0BCFCE8A99485 /* Pods-MusicTouchpadUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B8F14AB71E64158700B063C8 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +109,8 @@
 				B8F14AD71E64158700B063C8 /* MusicTouchpadTests */,
 				B8F14AE21E64158700B063C8 /* MusicTouchpadUITests */,
 				B8F14AC11E64158700B063C8 /* Products */,
+				082822B0E7A6B6749885292D /* Pods */,
+				EDCA51ECD531143240AAA638 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +155,16 @@
 			path = MusicTouchpadUITests;
 			sourceTree = "<group>";
 		};
+		EDCA51ECD531143240AAA638 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4659FD554525E7E8CA29A4A /* Pods_MusicTouchpad.framework */,
+				9A74C3EEB7C41A18B292BB10 /* Pods_MusicTouchpadTests.framework */,
+				E79593C500D7C32773BA0579 /* Pods_MusicTouchpadUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8F14AE81E64158700B063C8 /* Build configuration list for PBXNativeTarget "MusicTouchpad" */;
 			buildPhases = (
+				3BDA980F94B1F92D04796A4F /* [CP] Check Pods Manifest.lock */,
 				B8F14ABC1E64158700B063C8 /* Sources */,
 				B8F14ABD1E64158700B063C8 /* Frameworks */,
 				B8F14ABE1E64158700B063C8 /* Resources */,
+				ECEE8C4E7F51716DC4DD6BAF /* [CP] Embed Pods Frameworks */,
+				5D921513A3012518CC50DC53 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8F14AEB1E64158700B063C8 /* Build configuration list for PBXNativeTarget "MusicTouchpadTests" */;
 			buildPhases = (
+				49E1B11112C2783211983FA3 /* [CP] Check Pods Manifest.lock */,
 				B8F14AD01E64158700B063C8 /* Sources */,
 				B8F14AD11E64158700B063C8 /* Frameworks */,
 				B8F14AD21E64158700B063C8 /* Resources */,
+				EC370BD4778C7A12FC0A4DCD /* [CP] Embed Pods Frameworks */,
+				6895180682F9B07819673A61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8F14AEE1E64158700B063C8 /* Build configuration list for PBXNativeTarget "MusicTouchpadUITests" */;
 			buildPhases = (
+				5168A6016BFDB8685F29D45F /* [CP] Check Pods Manifest.lock */,
 				B8F14ADB1E64158700B063C8 /* Sources */,
 				B8F14ADC1E64158700B063C8 /* Frameworks */,
 				B8F14ADD1E64158700B063C8 /* Resources */,
+				04EC91F601534C540F003B6A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +301,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04EC91F601534C540F003B6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicTouchpadUITests/Pods-MusicTouchpadUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BDA980F94B1F92D04796A4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		49E1B11112C2783211983FA3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5168A6016BFDB8685F29D45F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5D921513A3012518CC50DC53 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicTouchpad/Pods-MusicTouchpad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6895180682F9B07819673A61 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicTouchpadTests/Pods-MusicTouchpadTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC370BD4778C7A12FC0A4DCD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicTouchpadTests/Pods-MusicTouchpadTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECEE8C4E7F51716DC4DD6BAF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicTouchpad/Pods-MusicTouchpad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B8F14ABC1E64158700B063C8 /* Sources */ = {
@@ -410,6 +581,7 @@
 		};
 		B8F14AE91E64158700B063C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E71F7A6E70DCA4CB1D2C53FA /* Pods-MusicTouchpad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MusicTouchpad/Info.plist;
@@ -422,6 +594,7 @@
 		};
 		B8F14AEA1E64158700B063C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E21EE7F55007B38E680BBCA2 /* Pods-MusicTouchpad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MusicTouchpad/Info.plist;
@@ -434,6 +607,7 @@
 		};
 		B8F14AEC1E64158700B063C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD4DA02A3039950563036153 /* Pods-MusicTouchpadTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -448,6 +622,7 @@
 		};
 		B8F14AED1E64158700B063C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBBFC27C357B411E89134DE1 /* Pods-MusicTouchpadTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -462,6 +637,7 @@
 		};
 		B8F14AEF1E64158700B063C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D2467712E377120E69E954C /* Pods-MusicTouchpadUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MusicTouchpadUITests/Info.plist;
@@ -475,6 +651,7 @@
 		};
 		B8F14AF01E64158700B063C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D648F61500A0BCFCE8A99485 /* Pods-MusicTouchpadUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MusicTouchpadUITests/Info.plist;
@@ -505,6 +682,7 @@
 				B8F14AEA1E64158700B063C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8F14AEB1E64158700B063C8 /* Build configuration list for PBXNativeTarget "MusicTouchpadTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +691,7 @@
 				B8F14AED1E64158700B063C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8F14AEE1E64158700B063C8 /* Build configuration list for PBXNativeTarget "MusicTouchpadUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +700,7 @@
 				B8F14AF01E64158700B063C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
