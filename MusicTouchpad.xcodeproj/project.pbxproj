@@ -250,6 +250,7 @@
 				TargetAttributes = {
 					B8F14ABF1E64158700B063C8 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9G689B788M;
 						ProvisioningStyle = Automatic;
 					};
 					B8F14AD31E64158700B063C8 = {
@@ -596,6 +597,7 @@
 			baseConfigurationReference = E71F7A6E70DCA4CB1D2C53FA /* Pods-MusicTouchpad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9G689B788M;
 				INFOPLIST_FILE = MusicTouchpad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ejud.MusicTouchpad;
@@ -609,6 +611,7 @@
 			baseConfigurationReference = E21EE7F55007B38E680BBCA2 /* Pods-MusicTouchpad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9G689B788M;
 				INFOPLIST_FILE = MusicTouchpad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ejud.MusicTouchpad;
