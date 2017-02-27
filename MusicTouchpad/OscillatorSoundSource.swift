@@ -36,7 +36,7 @@ class OscillatorSoundSource: NSObject, MusicTouchSoundSource {
         }
     }
 
-    //MARK: Public
+    // MARK: - Public
 
     var audioKitNode: AKNode {
         return mixer
@@ -57,7 +57,7 @@ class OscillatorSoundSource: NSObject, MusicTouchSoundSource {
         mixer.start()
     }
 
-    //MARK: MusicTouchSoundSource
+    // MARK: - MusicTouchSoundSource
 
     func getSound() -> MusicTouchSound? {
         if unusedOscillators.isEmpty {
