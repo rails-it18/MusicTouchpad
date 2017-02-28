@@ -21,10 +21,6 @@ protocol MusicTouchSoundSource: class {
 
 class MusicTouchView: UIView {
 
-    weak var soundSource: MusicTouchSoundSource?
-
-    private let frequencyConverter = NoteFrequencyConverter(baseNote: .G, baseOctave: 2)
-
     @IBInspectable var rowCount: Int = 5 {
         didSet {
             setNeedsDisplay()
@@ -36,6 +32,10 @@ class MusicTouchView: UIView {
             setNeedsDisplay()
         }
     }
+
+    weak var soundSource: MusicTouchSoundSource?
+
+    private let frequencyConverter = NoteFrequencyConverter(baseNote: .G, baseOctave: 2)
 
     private let snapDistance: CGFloat = 20.0
     private let rowEdgeOffset: CGFloat = 40.0
