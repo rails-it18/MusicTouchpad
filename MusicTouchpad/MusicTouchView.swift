@@ -25,7 +25,7 @@ class MusicTouchView: UIView {
 
     private let frequencyConverter = NoteFrequencyConverter(baseNote: .G, baseOctave: 2)
 
-    private let rowCount = 4
+    private let rowCount = 5
     private let colCount = 8
 
     private let snapDistance: CGFloat = 20.0
