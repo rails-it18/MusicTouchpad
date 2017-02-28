@@ -25,8 +25,17 @@ class MusicTouchView: UIView {
 
     private let frequencyConverter = NoteFrequencyConverter(baseNote: .G, baseOctave: 2)
 
-    private let rowCount = 5
-    private let colCount = 8
+    @IBInspectable var rowCount: Int = 5 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable var columnCount: Int = 8 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
 
     private let snapDistance: CGFloat = 20.0
     private let rowEdgeOffset: CGFloat = 40.0
@@ -40,7 +49,7 @@ class MusicTouchView: UIView {
     }
 
     private var spaceBetweenNoteLines: CGFloat {
-        return self.bounds.size.width / CGFloat(colCount)
+        return self.bounds.size.width / CGFloat(columnCount)
     }
     private var noteEdgeOffset: CGFloat {
         return spaceBetweenNoteLines / 2.0
@@ -62,7 +71,7 @@ class MusicTouchView: UIView {
         for row in (0 ..< rowCount) {
             let y = rowEdgeOffset + CGFloat(row) * spaceBetweenRowLines
 
-            for col in (0 ..< colCount) {
+            for col in (0 ..< columnCount) {
                 let x = noteEdgeOffset + CGFloat(col) * spaceBetweenNoteLines
 
                 context.move(to: CGPoint(x: x - 0.5 * crosshairWidth, y: y))
