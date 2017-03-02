@@ -40,6 +40,9 @@ class MusicTouchView: UIView {
     private let snapDistance: CGFloat = 20.0
     private let rowEdgeOffset: CGFloat = 40.0
 
+    // To keep track of sounds, we use the address of the UITouch object
+    //  as a dictionary key. Unfortunately this means if we don't correctly
+    //  respond to touch events, we will leak sound objects.
     private typealias SoundMapKey = UnsafeMutableRawPointer
     private var soundMap: [SoundMapKey: MusicTouchSound] = [:]
 
@@ -139,12 +142,12 @@ class MusicTouchView: UIView {
     private func soundParameters(forTouch touch: UITouch) -> (frequency: Double, amplitude: Double) {
         let point = touch.location(in: self)
 
-        let noteIndex = noteIndexForPoint(point: point)
-        let frequency = frequencyConverter.frequency(forStepOffset: noteIndex)
+        let noteOffset = noteOffsetForPoint(point)
+        let frequency = frequencyConverter.frequency(forStepOffset: noteOffset)
         return (frequency: frequency, amplitude: amplitudeForTouch(touch: touch))
     }
 
-    private func noteIndexForPoint(point: CGPoint) -> Double {
+    private func noteOffsetForPoint(_ point: CGPoint) -> Double {
         let halfStepsForRow = halfStepsAboveRowBaseForOffset(x: point.x)
         let row = rowForOffset(y: point.y)
 
