@@ -19,7 +19,7 @@
 		B8F14AE41E64158700B063C8 /* MusicTouchpadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F14AE31E64158700B063C8 /* MusicTouchpadUITests.swift */; };
 		B8F14AF41E64188A00B063C8 /* MusicTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F14AF11E64188A00B063C8 /* MusicTouchView.swift */; };
 		B8F14AF51E64188A00B063C8 /* NoteFrequencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F14AF21E64188A00B063C8 /* NoteFrequencyConverter.swift */; };
-		B8F14AF61E64188A00B063C8 /* OscillatorSoundSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F14AF31E64188A00B063C8 /* OscillatorSoundSource.swift */; };
+		B8F14AF61E64188A00B063C8 /* DefaultSoundSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F14AF31E64188A00B063C8 /* DefaultSoundSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 		B8F14AE51E64158700B063C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8F14AF11E64188A00B063C8 /* MusicTouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTouchView.swift; sourceTree = "<group>"; };
 		B8F14AF21E64188A00B063C8 /* NoteFrequencyConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteFrequencyConverter.swift; sourceTree = "<group>"; };
-		B8F14AF31E64188A00B063C8 /* OscillatorSoundSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscillatorSoundSource.swift; sourceTree = "<group>"; };
+		B8F14AF31E64188A00B063C8 /* DefaultSoundSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSoundSource.swift; sourceTree = "<group>"; };
 		CD4DA02A3039950563036153 /* Pods-MusicTouchpadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicTouchpadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicTouchpadTests/Pods-MusicTouchpadTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D648F61500A0BCFCE8A99485 /* Pods-MusicTouchpadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicTouchpadUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicTouchpadUITests/Pods-MusicTouchpadUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E21EE7F55007B38E680BBCA2 /* Pods-MusicTouchpad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicTouchpad.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicTouchpad/Pods-MusicTouchpad.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			children = (
 				B8F14AF11E64188A00B063C8 /* MusicTouchView.swift */,
 				B8F14AF21E64188A00B063C8 /* NoteFrequencyConverter.swift */,
-				B8F14AF31E64188A00B063C8 /* OscillatorSoundSource.swift */,
+				B8F14AF31E64188A00B063C8 /* DefaultSoundSource.swift */,
 				B8F14AC31E64158700B063C8 /* AppDelegate.swift */,
 				B8F14AC51E64158700B063C8 /* ViewController.swift */,
 				B8F14AC71E64158700B063C8 /* Main.storyboard */,
@@ -441,7 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8F14AC61E64158700B063C8 /* ViewController.swift in Sources */,
-				B8F14AF61E64188A00B063C8 /* OscillatorSoundSource.swift in Sources */,
+				B8F14AF61E64188A00B063C8 /* DefaultSoundSource.swift in Sources */,
 				B8F14AC41E64158700B063C8 /* AppDelegate.swift in Sources */,
 				B8F14AF41E64188A00B063C8 /* MusicTouchView.swift in Sources */,
 				B8F14AF51E64188A00B063C8 /* NoteFrequencyConverter.swift in Sources */,

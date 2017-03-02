@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var musicTouchView: MusicTouchView!
 
-    private let soundSource = OscillatorSoundSource()
+    private let soundSource = DefaultSoundSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
