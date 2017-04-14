@@ -7,7 +7,7 @@ target 'MusicTouchpad' do
 
   # Pods for MusicTouchpad
 
-  pod 'AudioKit', '~> 3.5.3'
+  pod 'AudioKit', '~> 3.6'
 
   target 'MusicTouchpadTests' do
     inherit! :search_paths
