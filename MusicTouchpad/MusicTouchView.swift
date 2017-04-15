@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AudioKit
 
 protocol MusicTouchSound {
     func start(withFrequency frequency: Double, amplitude: Double)
@@ -46,7 +45,11 @@ class MusicTouchView: UIView {
     //  as a dictionary key. Unfortunately this means if we don't correctly
     //  respond to touch events, we will leak sound objects.
     private typealias SoundMapKey = UnsafeMutableRawPointer
-    private var soundMap: [SoundMapKey: MusicTouchSound] = [:]
+    private struct SoundMapValue {
+        let oddSound: MusicTouchSound
+        let evenSound: MusicTouchSound
+    }
+    private var soundMap: [SoundMapKey: SoundMapValue] = [:]
 
     private var spaceBetweenRowLines: CGFloat {
         let numberOfSpaces = rowCount - 1
@@ -75,8 +78,6 @@ class MusicTouchView: UIView {
         refreshForceTouchCapability()
     }
 
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext()
             else { return }
@@ -112,23 +113,30 @@ class MusicTouchView: UIView {
             // We need an unused oscillator for each touch
             let key = mapKeyForTouch(touch: touch)
 
-            guard let sound = soundSource?.getSound()
+            guard let oddSound = soundSource?.getSound()
                 else { continue }
 
-            soundMap[key] = sound
+            guard let evenSound = soundSource?.getSound()
+                else { continue }
+
+            soundMap[key] = SoundMapValue(oddSound: oddSound, evenSound: evenSound)
 
             let params = soundParameters(forTouch: touch)
-            sound.start(withFrequency: params.frequency, amplitude: params.amplitude)
+
+            oddSound.start(withFrequency: params.odd.frequency, amplitude: params.odd.amplitude)
+            evenSound.start(withFrequency: params.even.frequency, amplitude: params.even.amplitude)
         }
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let key = mapKeyForTouch(touch: touch)
-            if let sound = soundMap[key] {
+            guard let sounds = soundMap[key]
+                else { continue }
+
                 let params = soundParameters(forTouch: touch)
-                sound.update(withFrequency: params.frequency, amplitude: params.amplitude)
-            }
+            sounds.oddSound.update(withFrequency: params.odd.frequency, amplitude: params.odd.amplitude)
+            sounds.evenSound.update(withFrequency: params.even.frequency, amplitude: params.even.amplitude)
         }
     }
 
@@ -136,8 +144,9 @@ class MusicTouchView: UIView {
         for touch in touches {
             let key = mapKeyForTouch(touch: touch)
 
-            if let sound = soundMap.removeValue(forKey: key) {
-                soundSource?.finished(withSound: sound)
+            if let sounds = soundMap.removeValue(forKey: key) {
+                soundSource?.finished(withSound: sounds.oddSound)
+                soundSource?.finished(withSound: sounds.evenSound)
             }
         }
     }
@@ -146,8 +155,9 @@ class MusicTouchView: UIView {
         for touch in touches {
             let key = mapKeyForTouch(touch: touch)
 
-            if let sound = soundMap.removeValue(forKey: key) {
-                soundSource?.finished(withSound: sound)
+            if let sounds = soundMap.removeValue(forKey: key) {
+                soundSource?.finished(withSound: sounds.oddSound)
+                soundSource?.finished(withSound: sounds.evenSound)
             }
         }
     }
@@ -168,19 +178,39 @@ class MusicTouchView: UIView {
         return Unmanaged.passUnretained(touch).toOpaque()
     }
 
-    private func soundParameters(forTouch touch: UITouch) -> (frequency: Double, amplitude: Double) {
+    private struct SoundParameters {
+        struct SingleSoundParam {
+            let frequency: Double
+            let amplitude: Double
+        }
+
+        let odd: SingleSoundParam
+        let even: SingleSoundParam
+    }
+    private func soundParameters(forTouch touch: UITouch) -> SoundParameters {
         let point = touch.location(in: self)
 
-        let noteOffset = noteOffsetForPoint(point)
-        let frequency = frequencyConverter.frequency(forStepOffset: noteOffset)
-        return (frequency: frequency, amplitude: amplitudeForTouch(touch: touch))
+        let rowInfo = rowComputationForOffset(y: point.y)
+
+        let oddNoteOffset = noteOffset(x: point.x, row: rowInfo.odd)
+        let evenNoteOffset = noteOffset(x: point.x, row: rowInfo.even)
+
+        let totalAmplitude = amplitudeForTouch(touch: touch)
+
+        let oddParam = SoundParameters.SingleSoundParam(
+            frequency: frequencyConverter.frequency(forStepOffset: oddNoteOffset),
+            amplitude: totalAmplitude * (1.0 - rowInfo.oddToEvenBlend))
+        let evenParam = SoundParameters.SingleSoundParam(
+            frequency: frequencyConverter.frequency(forStepOffset: evenNoteOffset),
+            amplitude: totalAmplitude * rowInfo.oddToEvenBlend)
+
+        return SoundParameters(odd: oddParam, even: evenParam)
     }
 
-    private func noteOffsetForPoint(_ point: CGPoint) -> Double {
-        let halfStepsForRow = halfStepsAboveRowBaseForOffset(x: point.x)
-        let row = rowForOffset(y: point.y)
+    private func noteOffset(x: CGFloat, row: Int) -> Double {
+        let halfStepsForRow = halfStepsAboveRowBaseForOffset(x: x)
 
-        return (rowCount - row - 1) * 7.0 + halfStepsForRow
+        return Double((rowCount - row - 1) * 7) + halfStepsForRow
     }
 
     private func halfStepsAboveRowBaseForOffset(x: CGFloat) -> Double {
@@ -203,20 +233,30 @@ class MusicTouchView: UIView {
         }
     }
 
-    private func rowForOffset(y: CGFloat) -> Int {
+    private func rowComputationForOffset(y: CGFloat) -> (odd: Int, even: Int, oddToEvenBlend: Double) {
         let distFromFirstRow = y - rowEdgeOffset
-        let lowerBoundRow = Int(floor(distFromFirstRow / spaceBetweenRowLines))
-        let lowerBoundRowOffset = rowEdgeOffset + CGFloat(lowerBoundRow) * spaceBetweenRowLines
+        let lowerBoundRow = Int(floor((distFromFirstRow + snapDistance) / spaceBetweenRowLines))
 
-        let closerToLower = (y - lowerBoundRowOffset < spaceBetweenRowLines / 2.0)
-        let nearestRowLine = closerToLower ? lowerBoundRow : (lowerBoundRow + 1)
+        let isLowerBoundEven = (lowerBoundRow % 2 == 0)
 
-        return nearestRowLine
+        let oddRow = (isLowerBoundEven ? lowerBoundRow + 1 : lowerBoundRow)
+        let evenRow = (isLowerBoundEven ? lowerBoundRow : lowerBoundRow + 1)
+
+
+        let lowerBoundRowMaximumOffset = rowEdgeOffset + CGFloat(lowerBoundRow) * spaceBetweenRowLines + snapDistance
+
+        let distanceFromLower = max(0.0, y - lowerBoundRowMaximumOffset)
+        let blendableDistance = spaceBetweenRowLines - (2.0 * snapDistance)
+        let blendValue = Double(distanceFromLower / blendableDistance)
+
+        let oddToEvenBlend = isLowerBoundEven ? (1.0 - blendValue) : blendValue
+
+        return (odd: oddRow, even: evenRow, oddToEvenBlend: oddToEvenBlend)
     }
 
     private func amplitudeForTouch(touch: UITouch) -> Double {
         if (forceTouchAvailable) {
-            return Double(touch.force) / 6.67
+        return Double(touch.force) / 6.67
         } else {
             return 1.0
         }
