@@ -41,15 +41,39 @@ class MusicTouchView: UIView {
     private let snapDistance: CGFloat = 20.0
     private let rowEdgeOffset: CGFloat = 40.0
 
-    // To keep track of sounds, we use the address of the UITouch object
-    //  as a dictionary key. Unfortunately this means if we don't correctly
-    //  respond to touch events, we will leak sound objects.
-    private typealias SoundMapKey = UnsafeMutableRawPointer
-    private struct SoundMapValue {
-        let oddSound: MusicTouchSound
-        let evenSound: MusicTouchSound
+    private class SoundCache {
+        // To keep track of sounds, we use the address of the UITouch object
+        //  as a dictionary key. Unfortunately this means if we don't correctly
+        //  respond to touch events, we will leak sound objects.
+        private typealias SoundMapKey = UnsafeMutableRawPointer
+        struct SoundMapValue {
+            let oddSound: MusicTouchSound
+            let evenSound: MusicTouchSound
+        }
+
+        private var soundMap: [SoundMapKey: SoundMapValue] = [:]
+
+        func sounds(forTouch touch: UITouch) -> SoundMapValue? {
+            let key = mapKeyForTouch(touch: touch)
+            return soundMap[key]
+        }
+
+        func setSounds(_ sounds: SoundMapValue, forTouch touch: UITouch) {
+            let key = mapKeyForTouch(touch: touch)
+            soundMap[key] = sounds
+        }
+
+        func removeSounds(forTouch touch: UITouch) -> SoundMapValue? {
+            let key = mapKeyForTouch(touch: touch)
+            return soundMap.removeValue(forKey: key)
+        }
+
+        private func mapKeyForTouch(touch: UITouch) -> SoundMapKey {
+            return Unmanaged.passUnretained(touch).toOpaque()
+        }
     }
-    private var soundMap: [SoundMapKey: SoundMapValue] = [:]
+
+    private let soundCache = SoundCache()
 
     private var spaceBetweenRowLines: CGFloat {
         let numberOfSpaces = rowCount - 1
@@ -110,16 +134,13 @@ class MusicTouchView: UIView {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            // We need an unused oscillator for each touch
-            let key = mapKeyForTouch(touch: touch)
-
             guard let oddSound = soundSource?.getSound()
                 else { continue }
 
             guard let evenSound = soundSource?.getSound()
                 else { continue }
 
-            soundMap[key] = SoundMapValue(oddSound: oddSound, evenSound: evenSound)
+            soundCache.setSounds(SoundCache.SoundMapValue(oddSound: oddSound, evenSound: evenSound), forTouch: touch)
 
             let params = soundParameters(forTouch: touch)
 
@@ -130,11 +151,10 @@ class MusicTouchView: UIView {
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            let key = mapKeyForTouch(touch: touch)
-            guard let sounds = soundMap[key]
+            guard let sounds = soundCache.sounds(forTouch: touch)
                 else { continue }
 
-                let params = soundParameters(forTouch: touch)
+            let params = soundParameters(forTouch: touch)
             sounds.oddSound.update(withFrequency: params.odd.frequency, amplitude: params.odd.amplitude)
             sounds.evenSound.update(withFrequency: params.even.frequency, amplitude: params.even.amplitude)
         }
@@ -142,9 +162,7 @@ class MusicTouchView: UIView {
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            let key = mapKeyForTouch(touch: touch)
-
-            if let sounds = soundMap.removeValue(forKey: key) {
+            if let sounds = soundCache.removeSounds(forTouch: touch) {
                 soundSource?.finished(withSound: sounds.oddSound)
                 soundSource?.finished(withSound: sounds.evenSound)
             }
@@ -153,9 +171,7 @@ class MusicTouchView: UIView {
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            let key = mapKeyForTouch(touch: touch)
-
-            if let sounds = soundMap.removeValue(forKey: key) {
+            if let sounds = soundCache.removeSounds(forTouch: touch) {
                 soundSource?.finished(withSound: sounds.oddSound)
                 soundSource?.finished(withSound: sounds.evenSound)
             }
@@ -172,10 +188,6 @@ class MusicTouchView: UIView {
         } else {
             forceTouchAvailable = (self.traitCollection.forceTouchCapability == .available)
         }
-    }
-
-    private func mapKeyForTouch(touch: UITouch) -> SoundMapKey {
-        return Unmanaged.passUnretained(touch).toOpaque()
     }
 
     private struct SoundParameters {
