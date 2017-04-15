@@ -35,6 +35,8 @@ class MusicTouchView: UIView {
 
     weak var soundSource: MusicTouchSoundSource?
 
+    private var forceTouchAvailable: Bool = false
+
     private let frequencyConverter = NoteFrequencyConverter(baseNote: .G, baseOctave: 2)
 
     private let snapDistance: CGFloat = 20.0
@@ -56,6 +58,21 @@ class MusicTouchView: UIView {
     }
     private var noteEdgeOffset: CGFloat {
         return spaceBetweenNoteLines / 2.0
+    }
+
+    required override init(frame: CGRect) {
+        super.init(frame: frame)
+        refreshForceTouchCapability()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        refreshForceTouchCapability()
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        //TODO: Test this on a device
+        refreshForceTouchCapability()
     }
 
     // Only override draw() if you perform custom drawing.
@@ -135,6 +152,18 @@ class MusicTouchView: UIView {
         }
     }
 
+    //MARK: Private
+
+    private func refreshForceTouchCapability() {
+        //TODO: Remove this check. This seems ridiculous, but I'm getting
+        //  forceTouchCapability set to available for the iOS Simulator
+        if (TARGET_OS_SIMULATOR != 0) {
+            forceTouchAvailable = false
+        } else {
+            forceTouchAvailable = (self.traitCollection.forceTouchCapability == .available)
+        }
+    }
+
     private func mapKeyForTouch(touch: UITouch) -> SoundMapKey {
         return Unmanaged.passUnretained(touch).toOpaque()
     }
@@ -186,6 +215,10 @@ class MusicTouchView: UIView {
     }
 
     private func amplitudeForTouch(touch: UITouch) -> Double {
-        return Double(touch.force) / 6.67
+        if (forceTouchAvailable) {
+            return Double(touch.force) / 6.67
+        } else {
+            return 1.0
+        }
     }
 }
