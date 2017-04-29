@@ -600,7 +600,7 @@
 				DEVELOPMENT_TEAM = 9G689B788M;
 				INFOPLIST_FILE = MusicTouchpad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.ejud.MusicTouchpad;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ejud.MusicTouchpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -614,7 +614,7 @@
 				DEVELOPMENT_TEAM = 9G689B788M;
 				INFOPLIST_FILE = MusicTouchpad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.ejud.MusicTouchpad;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ejud.MusicTouchpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -628,7 +628,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MusicTouchpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.ejud.MusicTouchpadTests;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ejud.MusicTouchpadTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicTouchpad.app/MusicTouchpad";
@@ -643,7 +643,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MusicTouchpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.ejud.MusicTouchpadTests;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ejud.MusicTouchpadTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicTouchpad.app/MusicTouchpad";
@@ -657,7 +657,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MusicTouchpadUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.ejud.MusicTouchpadUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ejud.MusicTouchpadUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MusicTouchpad;
@@ -671,7 +671,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MusicTouchpadUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.ejud.MusicTouchpadUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ejud.MusicTouchpadUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MusicTouchpad;
