@@ -187,6 +187,7 @@
 				B8F14ABE1E64158700B063C8 /* Resources */,
 				ECEE8C4E7F51716DC4DD6BAF /* [CP] Embed Pods Frameworks */,
 				5D921513A3012518CC50DC53 /* [CP] Copy Pods Resources */,
+				B8D3A6BA1EB5C1CF002782C3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -402,6 +403,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicTouchpadTests/Pods-MusicTouchpadTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B8D3A6BA1EB5C1CF002782C3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/AudioKit.framework/fix-framework.sh";
 		};
 		EC370BD4778C7A12FC0A4DCD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
