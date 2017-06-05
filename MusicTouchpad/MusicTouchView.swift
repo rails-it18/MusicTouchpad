@@ -45,6 +45,10 @@ class MusicTouchView: UIView {
         // To keep track of sounds, we use the address of the UITouch object
         //  as a dictionary key. Unfortunately this means if we don't correctly
         //  respond to touch events, we will leak sound objects.
+        // Up to two sounds are needed for each touch to support blending
+        //  sounds when transitioning between rows of "keys" on the touchpad.
+        // For this, we use oddSound for the odd-numbered row and evenSound
+        //  for the even-numbered row
         private typealias SoundMapKey = UnsafeMutableRawPointer
         struct SoundMapValue {
             let oddSound: MusicTouchSound
